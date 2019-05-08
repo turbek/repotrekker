@@ -12,6 +12,8 @@ import {CardComponent} from './card-holder/card/card.component';
 import {CardHolderComponent} from './card-holder/card-holder.component';
 import {LandingPageComponent} from './landing-page/landing-page.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { IssueHolderComponent } from './issues-holder/issue-holder.component';
+import { IssueComponent } from './issues-holder/issue/issue.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +22,9 @@ import {AppRoutingModule} from "./app-routing.module";
         SearchInputComponent,
         CardComponent,
         CardHolderComponent,
-        LandingPageComponent
+        LandingPageComponent,
+        IssueHolderComponent,
+        IssueComponent
     ],
     imports: [
         BrowserModule,

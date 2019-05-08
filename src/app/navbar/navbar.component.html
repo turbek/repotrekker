@@ -1,4 +1,4 @@
 <nav class="navbar">
     <span class="navbar-brand mb-0 h1">repotrekker.</span>
-    <app-search-input></app-search-input>
+    <app-search-input *ngIf="router.url !== '/'"></app-search-input>
 </nav>

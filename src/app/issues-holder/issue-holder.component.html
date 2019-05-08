@@ -1,0 +1,12 @@
+<div class="col-12 col-lg-10">
+    <div class="list-group">
+        <app-issue
+            *ngFor="let issue of queriedIssues"
+            [title]="issue.title"
+            [userName]="issue.user.login"
+            [state]="issue.state"
+            [comments]="issue.comments"
+            [created]="issue.created_at"
+        ></app-issue>
+    </div>
+</div>
