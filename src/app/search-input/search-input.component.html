@@ -1,0 +1,10 @@
+<input
+    class="form-control form-control-lg"
+    type="text"
+    placeholder="Search for a github repository"
+    [formControl]="query"
+    (keyup.enter)="getRepositories()"
+    (keyup.enter)="navigateToCards()"
+>
+
+
