@@ -1,0 +1,14 @@
+<!--div class="row"-->
+<p class="col-lg-2">{{ queriedRepositoriesCount }}</p>
+<div class="col-12 col-lg-10">
+    <app-card
+        *ngFor="let repository of queriedRepositories"
+        [repoName]="repository.full_name"
+        [description]="repository.description"
+        [avatarUrl]="repository.owner.avatar_url"
+        [openIssuesCount]="repository.open_issues_count"
+        [stargazersCount]="repository.stargazers_count"
+        [forksCount]="repository.forks_count"
+    ></app-card>
+</div>
+<!--/div-->
