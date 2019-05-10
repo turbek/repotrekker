@@ -11,12 +11,13 @@ export class IssueComponent implements OnInit {
     @Input() userName: string;
     @Input() state: string;
     @Input() comments: number;
-    @Input() created: string;
+    @Input() created: string | Date;
 
     constructor() {
     }
 
     ngOnInit() {
+        this.created = new Date(this.created).toLocaleDateString("en-US");
     }
 
 }

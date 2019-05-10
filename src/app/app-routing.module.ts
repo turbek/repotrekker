@@ -7,7 +7,7 @@ import {IssueHolderComponent} from "./issues-holder/issue-holder.component";
 const routes: Routes = [
     { path: '', component:  LandingPageComponent },
     { path: 'search/:repository', component: CardHolderComponent },
-    { path: 'issues/:user/:repository', component: IssueHolderComponent }
+    { path: 'repository/:user/:repository/issues', component: IssueHolderComponent }
 ];
 
 @NgModule({

@@ -9,10 +9,11 @@ export interface QueriedIssuesResponse {
 }
 
 export interface Repository {
-    full_name: string,
+    name: string,
     owner: {
         avatar_url: string,
         url: string,
+        login: string
     },
     description: string,
     forks_count: number,

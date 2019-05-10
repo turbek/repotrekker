@@ -3,11 +3,13 @@
         <div class="row">
             <img class="col-5 col-sm-5" [src]="avatarUrl">
             <div class="col-10 col-sm-10">
-                <h5 class="card-title">{{ repoName }}</h5>
+                <h5 class="card-title">{{ userName }}/{{ repoName }}</h5>
                 <p class="card-text">{{ description }}</p>
                 <span class="icon fas fa-star"></span><span class="text">{{ stargazersCount }}</span>
                 <span class="icon fas fa-code-branch"></span><span class="text">{{ forksCount }}</span>
-                <span class="icon">Open issues:</span><span class="text">{{ openIssuesCount }}</span>
+                <a [routerLink]="['/', 'repository', userName, repoName, 'issues']" class="open-issues" (click)="logme()">
+                    <span class="icon">Open issues:</span><span class="text">{{ openIssuesCount }}</span>
+                </a>
             </div>
         </div>
     </div>

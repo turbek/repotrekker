@@ -13,7 +13,7 @@ img {
 }*/
 
 .card-title {
-    color: #E71D36;
+    color: #e7661d;
 }
 
 .card-title:hover {
@@ -31,4 +31,14 @@ img {
 
 .text {
     margin-right: 1rem;
+}
+
+.open-issues {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.open-issues:hover {
+    cursor: pointer;
+    font-style: italic;
 }

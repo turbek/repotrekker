@@ -2,7 +2,8 @@
 <div class="col-12 col-lg-10">
     <app-card
         *ngFor="let repository of queriedRepositories"
-        [repoName]="repository.full_name"
+        [repoName]="repository.name"
+        [userName]="repository.owner.login"
         [description]="repository.description"
         [avatarUrl]="repository.owner.avatar_url"
         [openIssuesCount]="repository.open_issues_count"

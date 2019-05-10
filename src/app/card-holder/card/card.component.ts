@@ -7,6 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class CardComponent implements OnInit {
     @Input() repoName: string;
+    @Input() userName: string;
     @Input() description: string;
     @Input() forksCount: number;
     @Input() stargazersCount: number;
@@ -18,5 +19,4 @@ export class CardComponent implements OnInit {
 
     ngOnInit() {
     }
-
 }
