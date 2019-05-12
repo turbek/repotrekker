@@ -32,7 +32,7 @@ export class GithubService {
     }
 
     private isRepositoryStoreNotLoaded(repositoryName: string) {
-        return !this.repositoryStore || repositoryName !== this.currentlyLoadedRepositoryDetails.repositoryName;
+        return !this.repositoryStore || this.queriedRepositoryName !== repositoryName;
     }
 
     loadIssuesForRepository(userName: string, repositoryName: string) {
