@@ -1,9 +1,40 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:800');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-
-nav {
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+%navbar-style {
     background-color: #2EC4B6;
     font-family: 'Montserrat', sans-serif;
     color: white;
 }
+
+.navbar {
+    @extend %navbar-style;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+}
+
+.navbar span {
+    font-weight: 800;
+}
+
+.breadcrumb {
+    @extend %navbar-style;
+    background-color: #ff8b05c2;
+    padding: 1px 15px !important;
+    border-radius: 0;
+}
+
+ol .breadcrumb li .breadcrumb-item {
+    color: inherit;
+}
+
+.breadcrumb > li + li:before {
+    content: "\f054";
+    font-family: "Font Awesome 5 Free";
+    vertical-align: middle;
+    font-weight: 900;
+    color: inherit;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+

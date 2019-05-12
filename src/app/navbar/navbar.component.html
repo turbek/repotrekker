@@ -1,4 +1,10 @@
 <nav class="navbar">
     <span class="navbar-brand mb-0 h1">repotrekker.</span>
-    <app-search-input *ngIf="router.url !== '/'"></app-search-input>
+    <app-search-input *ngIf="location.path() !== ''"></app-search-input>
 </nav>
+
+<ol class="breadcrumb" *ngIf="location.path() !== ''">
+    <li class="breadcrumb-item cursor-pointer" *ngIf="isIssuesPageActive()" [routerLink]="['/search', getSearchedRepositoryName()]">back to search</li>
+    <li class="breadcrumb-item" *ngIf="isIssuesPageActive()">{{ getCurrentRepositoryName() }}</li>
+    <li class="breadcrumb-item" *ngIf="!isIssuesPageActive()">{{ getSearchedRepositoryName() }}</li>
+</ol>

@@ -1,20 +1,30 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {Component} from '@angular/core';
+import {Location} from '@angular/common';
+import {GithubService} from "../services/github.service";
 
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
     constructor(
-        public router: Router
+        private location: Location,
+        private githubService: GithubService
     ) {
     }
 
-    ngOnInit() {
-        console.log(this.router)
+    isIssuesPageActive(){
+        return this.location.path().includes('issues');
     }
 
+    getSearchedRepositoryName(){
+        return this.githubService.getSearchedRepositoryName();
+    }
+
+    getCurrentRepositoryName(){
+        let currentRepositoryNames = this.githubService.getCurrentRepositoryDetails();
+        return `${currentRepositoryNames.userName}/${currentRepositoryNames.repositoryName}`;
+    }
 }
