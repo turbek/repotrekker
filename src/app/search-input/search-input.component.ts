@@ -22,10 +22,6 @@ export class SearchInputComponent implements OnInit {
     }
 
     getRepositories() {
-        this.githubService.loadRepositoriesByName(this.query.value);
-    }
-
-    navigateToCards() {
         this.router.navigateByUrl(`/search/${this.query.value}`);
     }
 }
