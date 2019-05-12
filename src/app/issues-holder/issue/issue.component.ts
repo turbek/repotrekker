@@ -11,6 +11,7 @@ export class IssueComponent implements OnInit {
     @Input() userName: string;
     @Input() state: string;
     @Input() comments: number;
+    @Input() avatarUrl: string;
     @Input() created: string | Date;
 
     constructor() {

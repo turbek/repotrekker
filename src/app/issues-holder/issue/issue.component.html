@@ -1,8 +1,10 @@
-<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-        <h3 class="mb-1">{{ title }}</h3>
-        <small>{{ created }}</small>
+<a href="#" class="list-group-item list-group-item-action">
+    <div class="row">
+        <div class="user col-2">
+            <img [src]="avatarUrl">
+            <span>{{ userName }}</span>
+        </div>
+        <h5 class="mb-1 col-9">{{ title }}</h5>
+        <small class="col-1">{{ created }}</small>
     </div>
-    <!--p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p-->
-    <small>{{ userName }}.</small>
 </a>

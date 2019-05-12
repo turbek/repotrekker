@@ -21,7 +21,7 @@ export class IssueHolderComponent implements OnInit {
     ngOnInit() {
         this.route.paramMap.subscribe((paramMap: ParamMap) => {
             if (paramMap.has('user') && paramMap.has('repository')) {
-                this.githubService.loadIssuesForRepository(`${paramMap.get('user')}/${paramMap.get('repository')}`);
+                this.githubService.loadIssuesForRepository(paramMap.get('user'), paramMap.get('repository'));
             }
         });
         this.githubService.getIssues().subscribe(
