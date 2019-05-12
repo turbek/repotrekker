@@ -15,3 +15,18 @@ body {
     color: black;
     text-decoration: none;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+a,
+a:hover {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+}

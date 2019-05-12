@@ -6,5 +6,5 @@
 <ol class="breadcrumb" *ngIf="location.path() !== ''">
     <li class="breadcrumb-item cursor-pointer" *ngIf="isIssuesPageActive()" [routerLink]="['/search', getSearchedRepositoryName()]">back to search</li>
     <li class="breadcrumb-item" *ngIf="isIssuesPageActive()">{{ getCurrentRepositoryName() }}</li>
-    <li class="breadcrumb-item" *ngIf="!isIssuesPageActive()">{{ getSearchedRepositoryName() }}</li>
+    <li class="breadcrumb-item" *ngIf="!isIssuesPageActive()">searched for: {{ getSearchedRepositoryName() }}</li>
 </ol>
