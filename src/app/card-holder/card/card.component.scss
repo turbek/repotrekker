@@ -1,3 +1,7 @@
+%pointer {
+    cursor: pointer;
+}
+
 img {
     max-height: 5rem;
     max-width: 7rem;
@@ -13,12 +17,12 @@ img {
 }*/
 
 .card-title {
-    color: #e7661d;
+    color: #ff8b05c2;
 }
 
 .card-title:hover {
     text-decoration: underline;
-    cursor: pointer;
+    @extend %pointer;
 }
 
 .card-text {
@@ -39,6 +43,10 @@ img {
 }
 
 .open-issues:hover {
-    cursor: pointer;
     font-style: italic;
+    @extend %pointer;
+}
+
+.cursor-pointer {
+    @extend %pointer;
 }

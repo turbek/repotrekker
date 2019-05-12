@@ -13,10 +13,24 @@ export class CardComponent implements OnInit {
     @Input() stargazersCount: number;
     @Input() openIssuesCount: number;
     @Input() avatarUrl: string;
+    partialDescription: string;
+    isDescriptionExpanded: boolean;
+    sliceDescriptionAt: number = 200;
 
     constructor() {
     }
 
     ngOnInit() {
+        if(this.isDescriptionTooLong()){
+            this.partialDescription = this.description.slice(0, this.sliceDescriptionAt);
+            this.partialDescription += '...';
+        } else {
+            this.partialDescription = this.description;
+        }
     }
+
+    isDescriptionTooLong(){
+        return this.description ? this.description.length > this.sliceDescriptionAt : false;
+    }
+
 }
