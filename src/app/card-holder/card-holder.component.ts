@@ -19,18 +19,19 @@ export class CardHolderComponent implements OnInit {
     ) {
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.route.paramMap.subscribe((paramMap: ParamMap) => {
             if (paramMap.has('repository')) {
-                this.githubService.loadRepositoriesByName(paramMap.get('repository'));
+                this.loadRepositories(paramMap.get('repository'));
             }
         });
-        this.githubService.getRepositories().subscribe(
-            (response: QueriedRepositoryResponse) => {
-                this.queriedRepositories = response.items;
-                this.queriedRepositoriesCount = `Total count: ${response.total_count}`;
-            }
-        );
+    }
+
+    private loadRepositories(query: string) {
+        this.githubService.getRepositories(query).then((response: QueriedRepositoryResponse) => {
+            this.queriedRepositories = response.items;
+            this.queriedRepositoriesCount = `Total count: ${response.total_count}`;
+        })
     }
 
 }
