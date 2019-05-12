@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {GithubService} from "../services/github.service";
 import {Router} from "@angular/router";
@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
     templateUrl: './search-input.component.html',
     styleUrls: ['./search-input.component.scss']
 })
-export class SearchInputComponent implements OnInit {
+export class SearchInputComponent {
 
     query = new FormControl('');
 
@@ -16,9 +16,6 @@ export class SearchInputComponent implements OnInit {
         private githubService: GithubService,
         private router: Router
     ) {
-    }
-
-    ngOnInit() {
     }
 
     getRepositories() {

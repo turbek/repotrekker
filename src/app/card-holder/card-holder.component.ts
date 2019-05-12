@@ -38,9 +38,9 @@ export class CardHolderComponent implements OnInit {
     filterRepositories(filterBy: string) {
         this.shownRepositories = this.queriedRepositories.filter((repository: Repository) => {
             if(repository.description){
-                return repository.name.includes(filterBy) || repository.description.includes(filterBy);
+                return repository.full_name.includes(filterBy) || repository.description.includes(filterBy);
             } else {
-                return repository.name.includes(filterBy);
+                return repository.full_name.includes(filterBy);
             }
         });
         this.sortRepositories(this.sortBy);
