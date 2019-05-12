@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {GithubService} from "../services/github.service";
 
@@ -7,12 +7,24 @@ import {GithubService} from "../services/github.service";
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+
+    public innerWidth: number;
+    isInputTriggered: boolean;
 
     constructor(
         private location: Location,
         private githubService: GithubService
     ) {
+    }
+
+    ngOnInit() {
+        this.innerWidth = window.innerWidth;
+    }
+
+    @HostListener('window:resize', ['$event'])
+    onResize(event) {
+        this.innerWidth = window.innerWidth;
     }
 
     isIssuesPageActive(){
@@ -26,5 +38,13 @@ export class NavbarComponent {
     getCurrentRepositoryName(){
         let currentRepositoryNames = this.githubService.getCurrentRepositoryDetails();
         return `${currentRepositoryNames.userName}/${currentRepositoryNames.repositoryName}`;
+    }
+
+    isSearchInputShown() {
+        return this.location.path() !== '' && this.innerWidth > 500;
+    }
+
+    triggerSearchInput() {
+        this.isInputTriggered = !this.isInputTriggered;
     }
 }

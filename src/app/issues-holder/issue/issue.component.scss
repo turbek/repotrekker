@@ -9,7 +9,6 @@ img {
 
 .user {
     font-size: 0.7rem;
-    max-width: 12%;
 }
 
 .user span {
@@ -25,4 +24,19 @@ img {
 
 .date-and-comments span {
     display: block;
+}
+
+
+@media (max-width: 565px) {
+    .hidden-xxs {
+        display: none;
+    }
+    .col-xxs {
+        max-width: none;
+        flex: none;
+    }
+    .text-align-center-xxs {
+        text-align: center;
+    }
+
 }

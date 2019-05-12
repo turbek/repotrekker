@@ -1,6 +1,11 @@
 <nav class="navbar">
     <span class="navbar-brand mb-0 h1">repotrekker.</span>
-    <app-search-input *ngIf="location.path() !== ''"></app-search-input>
+    <app-search-input *ngIf="isSearchInputShown() || isInputTriggered"></app-search-input>
+    <i
+        *ngIf="location.path() !== '' && innerWidth < 500"
+        (click)="triggerSearchInput()"
+        class="fas fa-search fa-2x cursor-pointer"
+    ></i>
 </nav>
 
 <ol class="breadcrumb" *ngIf="location.path() !== ''">

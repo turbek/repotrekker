@@ -14,10 +14,6 @@ img {
     margin-bottom: 0.2rem;
 }
 
-/*.card:hover {
-    background-color: aliceblue;
-}*/
-
 .card-title {
     color: #ff8b05c2;
 }
@@ -51,4 +47,26 @@ img {
 
 .cursor-pointer {
     @extend %pointer;
+}
+
+.icons-padding {
+    padding: 0 0.9rem;
+}
+
+@media (max-width: 389px) {
+    .col-xxs {
+        flex: none;
+        max-width: none;
+    }
+
+    .hidden-on-xxs {
+        display: none;
+    }
+}
+
+@media (min-width: 390px) {
+    .icons-padding-xss {
+        padding-left: 106px + 15px;
+    }
+
 }

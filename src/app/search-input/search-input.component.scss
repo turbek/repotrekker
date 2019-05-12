@@ -1,3 +1,12 @@
 input {
     border-radius: 30px;
 }
+
+@media (max-width: 500px) {
+    .opened-search-input {
+        position: absolute;
+        top: 5px;
+        right: 3.5rem;
+        width: 80vw;
+    }
+}
