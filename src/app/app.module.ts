@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NavbarComponent} from './navbar/navbar.component';
 import {SearchInputComponent} from './search-input/search-input.component';
 import {CardComponent} from './card-holder/card/card.component';
@@ -34,7 +34,8 @@ import {ProgressBarInterceptorService} from "./interceptor/progress-bar-intercep
         BrowserModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        ReactiveFormsModule,
+        ReactiveFormsModule, //TODO use only formsmodule
+        FormsModule,
         AppRoutingModule,
         MatProgressBarModule
     ],

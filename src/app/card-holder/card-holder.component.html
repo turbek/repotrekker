@@ -1,13 +1,38 @@
-<p class="col-lg-2">{{ queriedRepositoriesCount }}</p>
-<div class="col-12 col-lg-10">
-    <app-card
-        *ngFor="let repository of queriedRepositories"
-        [repoName]="repository.name"
-        [userName]="repository.owner.login"
-        [description]="repository.description"
-        [avatarUrl]="repository.owner.avatar_url"
-        [openIssuesCount]="repository.open_issues_count"
-        [stargazersCount]="repository.stargazers_count"
-        [forksCount]="repository.forks_count"
-    ></app-card>
+<div [hidden]="!shownRepositories" class="col-12 col-lg-10">
+    <div class="row justify-content-between">
+        <p class="results">{{ shownRepositories?.length }} results</p>
+        <div class="form-row">
+            <div class="form-group">
+                <select
+                    (change)="sortRepositories($event.target.value)"
+                    class="form-control"
+                >
+                    <option selected disabled>Sort by</option>
+                    <option *ngFor="let option of getOptionKeys()" [value]="getOptions()[option]">{{ option }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input
+                    (keydown)="filterRepositories($event.target.value)"
+                    type="text"
+                    class="form-control"
+                    placeholder="search"
+                >
+            </div>
+        </div>
+    </div>
+    <div>
+        <app-card
+            *ngFor="let repository of shownRepositories"
+            [repoName]="repository.name"
+            [repoUrl]="repository.html_url"
+            [userName]="repository.owner.login"
+            [userUrl]="repository.owner.html_url"
+            [description]="repository.description"
+            [avatarUrl]="repository.owner.avatar_url"
+            [openIssuesCount]="repository.open_issues_count"
+            [stargazersCount]="repository.stargazers_count"
+            [forksCount]="repository.forks_count"
+        ></app-card>
+    </div>
 </div>

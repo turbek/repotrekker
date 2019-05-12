@@ -11,7 +11,8 @@ import {ActivatedRoute, ParamMap} from "@angular/router";
 export class CardHolderComponent implements OnInit {
 
     queriedRepositories: Repository[];
-    queriedRepositoriesCount: string;
+    shownRepositories: Repository[];
+    sortBy: string;
 
     constructor(
         private githubService: GithubService,
@@ -30,8 +31,41 @@ export class CardHolderComponent implements OnInit {
     private loadRepositories(query: string) {
         this.githubService.getRepositories(query).then((response: QueriedRepositoryResponse) => {
             this.queriedRepositories = response.items;
-            this.queriedRepositoriesCount = `Total count: ${response.total_count}`;
+            this.shownRepositories = this.queriedRepositories;
         })
     }
 
+    filterRepositories(filterBy: string) {
+        this.shownRepositories = this.queriedRepositories.filter((repository: Repository) => {
+            if(repository.description){
+                return repository.name.includes(filterBy) || repository.description.includes(filterBy);
+            } else {
+                return repository.name.includes(filterBy);
+            }
+        });
+        this.sortRepositories(this.sortBy);
+    }
+
+    sortRepositories(sortBy: string) {
+        this.sortBy = sortBy;
+        this.shownRepositories.sort((a: Repository, b: Repository) => {
+            if (a[sortBy] > b[sortBy]) {
+                return -1;
+            }
+        });
+    }
+
+    getOptions() {
+        return Option;
+    }
+
+    getOptionKeys() {
+        return Object.keys(Option);
+    }
+}
+
+export enum Option {
+    Stars = "stargazers_count",
+    Forks = "forks_count",
+    "Open issues" = "open_issues_count"
 }
