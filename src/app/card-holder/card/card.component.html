@@ -1,13 +1,19 @@
 <div class="card shadow rounded">
     <div class="card-body">
         <div class="row">
-            <img class="col-5 col-sm-5" [src]="avatarUrl">
+            <a [href]="userUrl">
+                <img [src]="avatarUrl">
+            </a>
             <div class="col-10 col-sm-10">
-                <h5 class="card-title">{{ userName }}/{{ repoName }}</h5>
-                <p class="card-text" [class.cursor-pointer]="isDescriptionTooLong()" *ngIf="!isDescriptionExpanded" (click)="isDescriptionExpanded = !isDescriptionExpanded">
+                <a [href]="repoUrl">
+                    <h5 class="card-title">{{ userName }}/{{ repoName }}</h5>
+                </a>
+                <p class="card-text" [class.cursor-pointer]="isDescriptionTooLong()" *ngIf="!isDescriptionExpanded"
+                   (click)="isDescriptionExpanded = !isDescriptionExpanded">
                     {{ partialDescription }}
                 </p>
-                <p class="card-text" [class.cursor-pointer]="isDescriptionTooLong()" *ngIf="isDescriptionExpanded" (click)="isDescriptionExpanded = !isDescriptionExpanded">
+                <p class="card-text" [class.cursor-pointer]="isDescriptionTooLong()" *ngIf="isDescriptionExpanded"
+                   (click)="isDescriptionExpanded = !isDescriptionExpanded">
                     {{ description }}
                 </p>
                 <span class="icon fas fa-star"></span><span class="text">{{ stargazersCount }}</span>

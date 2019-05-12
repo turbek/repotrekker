@@ -4,10 +4,12 @@
             *ngFor="let issue of queriedIssues"
             [title]="issue.title"
             [userName]="issue.user.login"
+            [userUrl]="issue.user.html_url"
             [state]="issue.state"
-            [comments]="issue.comments"
+            [commentsCount]="issue.comments"
             [created]="issue.created_at"
             [avatarUrl]="issue.user.avatar_url"
+            [issueUrl]="issue.html_url"
         ></app-issue>
     </div>
 </div>

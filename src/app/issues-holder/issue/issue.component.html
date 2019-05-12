@@ -1,10 +1,19 @@
-<a href="#" class="list-group-item list-group-item-action">
+<div class="list-group-item list-group-item-action">
     <div class="row">
         <div class="user col-2">
-            <img [src]="avatarUrl">
-            <span>{{ userName }}</span>
+            <a [href]="userUrl">
+                <img [src]="avatarUrl">
+                <span>{{ userName }}</span>
+            </a>
         </div>
-        <h5 class="mb-1 col-9">{{ title }}</h5>
-        <small class="col-1">{{ created }}</small>
+        <div class="mb-1 col-8">
+            <a [href]="issueUrl">
+                <h5>{{ title }}</h5>
+            </a>
+        </div>
+        <div class="date-and-comments col-2">
+            <i class="far fa-comments fa-lg"></i> {{ commentsCount }}
+            <span>created at: {{ created }}</span>
+        </div>
     </div>
-</a>
+</div>

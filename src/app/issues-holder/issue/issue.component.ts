@@ -9,10 +9,12 @@ export class IssueComponent implements OnInit {
 
     @Input() title: string;
     @Input() userName: string;
+    @Input() userUrl: string;
     @Input() state: string;
-    @Input() comments: number;
+    @Input() commentsCount: number;
     @Input() avatarUrl: string;
     @Input() created: string | Date;
+    @Input() issueUrl: string;
 
     constructor() {
     }

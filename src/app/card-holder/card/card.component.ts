@@ -7,7 +7,9 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class CardComponent implements OnInit {
     @Input() repoName: string;
+    @Input() repoUrl: string;
     @Input() userName: string;
+    @Input() userUrl: string;
     @Input() description: string;
     @Input() forksCount: number;
     @Input() stargazersCount: number;

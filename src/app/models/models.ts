@@ -13,8 +13,10 @@ export interface Repository {
     owner: {
         avatar_url: string,
         url: string,
-        login: string
+        login: string,
+        html_url: string
     },
+    html_url: string,
     description: string,
     forks_count: number,
     stargazers_count: number,
