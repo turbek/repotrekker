@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 /**
- *
+ * The representation of a repository
  */
 @Component({
     selector: 'app-repository',
@@ -25,6 +25,11 @@ export class RepositoryComponent implements OnInit {
     constructor() {
     }
 
+    /**
+     * slices the description if it's too long to conveniently display it.
+     *
+     * sets the partial description for the view
+     */
     ngOnInit() {
         if(this.isDescriptionTooLong()){ //TODO change this logic
             this.partialDescription = this.description.slice(0, this.sliceDescriptionAt);
@@ -34,6 +39,11 @@ export class RepositoryComponent implements OnInit {
         }
     }
 
+    /**
+     * Checks whether the description is too long the render
+     *
+     * @return Boolean
+     */
     isDescriptionTooLong(){
         return this.description ? this.description.length > this.sliceDescriptionAt : false;
     }

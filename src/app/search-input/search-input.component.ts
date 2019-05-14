@@ -3,6 +3,9 @@ import {FormControl} from "@angular/forms";
 import {GithubService} from "../services/github.service";
 import {Router} from "@angular/router";
 
+/**
+ * Renders the search bar
+ */
 @Component({
     selector: 'app-search-input',
     templateUrl: './search-input.component.html',
@@ -18,6 +21,9 @@ export class SearchInputComponent {
     ) {
     }
 
+    /**
+     * navigates to the repository view after an input
+     */
     getRepositories() {
         this.router.navigateByUrl(`/search/${this.query.value}`);
     }

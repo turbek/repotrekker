@@ -4,12 +4,18 @@ import {Observable} from "rxjs";
 import {ProgressBarService} from "../services/progress-bar.service";
 import {tap} from "rxjs/operators";
 
+/**
+ * The service catches every outgoing request
+ */
 @Injectable({providedIn: "root"})
 export class ProgressBarInterceptorService implements HttpInterceptor {
 
     constructor(private progressBarService: ProgressBarService) {
     }
 
+    /**
+     * Shows the progress bar at an outgoing request and hides after the response arrives
+     */
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.progressBarService.show();
 

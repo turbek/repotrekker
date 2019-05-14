@@ -3,6 +3,9 @@ import {Issue, QueriedIssuesResponse} from "../models/models";
 import {GithubService} from "../services/github.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 
+/**
+ * Renders the issues of a repository
+ */
 @Component({
   selector: 'app-issues-holder',
   templateUrl: './issue-holder.component.html',
@@ -18,6 +21,10 @@ export class IssueHolderComponent implements OnInit {
     ) {
     }
 
+    /**
+     * Loads the issues of a repository after it's been initialized
+     * only if the path includes the userName and the repositoryName
+     */
     ngOnInit() {
         this.route.paramMap.subscribe((paramMap: ParamMap) => {
             if (paramMap.has('user') && paramMap.has('repository')) {

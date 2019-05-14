@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {ProgressBarService} from "../services/progress-bar.service";
 
+/**
+ * Renders the progress bar
+ */
 @Component({
     selector: 'app-progress-bar',
     templateUrl: './progress-bar.component.html',

@@ -3,6 +3,9 @@ import {GithubService} from "../services/github.service";
 import {QueriedRepositoryResponse, Repository} from "../models/models";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 
+/**
+ * Renders the queried repositories
+ */
 @Component({
     selector: 'app-card-holder',
     templateUrl: './card-holder.component.html',
@@ -20,6 +23,9 @@ export class CardHolderComponent implements OnInit {
     ) {
     }
 
+    /**
+     * loads the repositories if it*s on the repository view after it has been initialized
+     */
     ngOnInit(): void {
         this.route.paramMap.subscribe((paramMap: ParamMap) => {
             if (paramMap.has('repository')) {
@@ -28,6 +34,11 @@ export class CardHolderComponent implements OnInit {
         });
     }
 
+    /**
+     * Load the requested repository
+     *
+     * @param query the string representation of the requested repository name
+     */
     private loadRepositories(query: string) {
         this.githubService.getRepositories(query).then((response: QueriedRepositoryResponse) => {
             this.queriedRepositories = response.items;
@@ -35,6 +46,12 @@ export class CardHolderComponent implements OnInit {
         })
     }
 
+    /**
+     * Filters the shown repositories and sorts them if it has been asked before
+     *
+     * @param filterBy filters the full name or the description as well if it's available
+     * @return Boolean
+     */
     filterRepositories(filterBy: string) {
         this.shownRepositories = this.queriedRepositories.filter((repository: Repository) => {
             if(repository.description){
@@ -46,6 +63,11 @@ export class CardHolderComponent implements OnInit {
         this.sortRepositories(this.sortBy);
     }
 
+    /**
+     * Sorts the shown repositories
+     *
+     * @param sortBy a string which is acquired from the Option enum
+     */
     sortRepositories(sortBy: string) {
         this.sortBy = sortBy;
         this.shownRepositories.sort((a: Repository, b: Repository) => {

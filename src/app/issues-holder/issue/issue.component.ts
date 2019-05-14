@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 
+/**
+ * The representation of an Issue
+ */
 @Component({
     selector: 'app-issue',
     templateUrl: './issue.component.html',
@@ -19,6 +22,9 @@ export class IssueComponent implements OnInit {
     constructor() {
     }
 
+    /**
+     * after it's been initialized, converts the date to a human readable form
+     */
     ngOnInit() {
         this.created = new Date(this.created).toLocaleDateString("en-US");
     }
