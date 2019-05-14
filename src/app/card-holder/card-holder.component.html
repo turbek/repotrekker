@@ -22,7 +22,7 @@
         </div>
     </div>
     <div>
-        <app-card
+        <app-repository
             *ngFor="let repository of shownRepositories"
             [repoName]="repository.name"
             [repoUrl]="repository.html_url"
@@ -33,6 +33,6 @@
             [openIssuesCount]="repository.open_issues_count"
             [stargazersCount]="repository.stargazers_count"
             [forksCount]="repository.forks_count"
-        ></app-card>
+        ></app-repository>
     </div>
 </div>

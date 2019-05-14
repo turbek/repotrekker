@@ -1,19 +1,19 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {CardComponent} from './card.component';
+import {RepositoryComponent} from './repository.component';
 import {RouterTestingModule} from "@angular/router/testing";
 import {By} from "@angular/platform-browser";
 
-describe('CardComponent: IT', () => {
-    let component: CardComponent;
-    let fixture: ComponentFixture<CardComponent>;
+describe('RepositoryComponent: IT', () => {
+    let component: RepositoryComponent;
+    let fixture: ComponentFixture<RepositoryComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [RouterTestingModule],
-            declarations: [CardComponent]
+            declarations: [RepositoryComponent]
         });
-        fixture = TestBed.createComponent(CardComponent);
+        fixture = TestBed.createComponent(RepositoryComponent);
         component = fixture.componentInstance;
     });
 

@@ -1,10 +1,10 @@
-import {CardComponent} from "./card.component";
+import {RepositoryComponent} from "./repository.component";
 
-describe('CardComponent: UNIT', () => {
-    let component: CardComponent;
+describe('RepositoryComponent: UNIT', () => {
+    let component: RepositoryComponent;
 
     beforeEach(() => {
-        component = new CardComponent();
+        component = new RepositoryComponent();
         component.sliceDescriptionAt = 5;
     });
 

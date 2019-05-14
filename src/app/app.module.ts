@@ -8,7 +8,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NavbarComponent} from './navbar/navbar.component';
 import {SearchInputComponent} from './search-input/search-input.component';
-import {CardComponent} from './card-holder/card/card.component';
+import {RepositoryComponent} from './card-holder/repository/repository.component';
 import {CardHolderComponent} from './card-holder/card-holder.component';
 import {LandingPageComponent} from './landing-page/landing-page.component';
 import {AppRoutingModule} from "./app-routing.module";
@@ -23,7 +23,7 @@ import {ProgressBarInterceptorService} from "./interceptor/progress-bar-intercep
         AppComponent,
         NavbarComponent,
         SearchInputComponent,
-        CardComponent,
+        RepositoryComponent,
         CardHolderComponent,
         LandingPageComponent,
         IssueHolderComponent,
