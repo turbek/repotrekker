@@ -2,7 +2,7 @@
     <span class="navbar-brand mb-0 h1">repotrekker.</span>
     <app-search-input *ngIf="isSearchInputShown() || isInputTriggered"></app-search-input>
     <i
-        *ngIf="location.path() !== '' && innerWidth < 500"
+        *ngIf="isSearchIconShown()"
         (click)="triggerSearchInput()"
         class="fas fa-search fa-2x cursor-pointer"
     ></i>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Issue, QueriedIssuesResponse, QueriedRepositoryResponse, Repository} from "../models/models";
+import {Component, OnInit} from '@angular/core';
+import {Issue, QueriedIssuesResponse} from "../models/models";
 import {GithubService} from "../services/github.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 
@@ -21,14 +21,12 @@ export class IssueHolderComponent implements OnInit {
     ngOnInit() {
         this.route.paramMap.subscribe((paramMap: ParamMap) => {
             if (paramMap.has('user') && paramMap.has('repository')) {
-                this.githubService.loadIssuesForRepository(paramMap.get('user'), paramMap.get('repository'));
+                this.githubService.loadIssuesForRepository(paramMap.get('user'), paramMap.get('repository'))
+                    .then((response: QueriedIssuesResponse) => {
+                        this.queriedIssues = response.items;
+                    });
             }
         });
-        this.githubService.getIssues().subscribe(
-            (response: QueriedIssuesResponse) => {
-                this.queriedIssues = response.items;
-            }
-        );
     }
 
 }

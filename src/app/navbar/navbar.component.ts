@@ -44,6 +44,10 @@ export class NavbarComponent implements OnInit {
         return this.location.path() !== '' && this.innerWidth > 500;
     }
 
+    isSearchIconShown() {
+        return this.location.path() !== '' && this.innerWidth < 500;
+    }
+
     triggerSearchInput() {
         this.isInputTriggered = !this.isInputTriggered;
     }
