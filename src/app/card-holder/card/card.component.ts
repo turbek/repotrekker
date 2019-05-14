@@ -17,13 +17,13 @@ export class CardComponent implements OnInit {
     @Input() avatarUrl: string;
     partialDescription: string;
     isDescriptionExpanded: boolean;
-    sliceDescriptionAt: number = 200;
+    sliceDescriptionAt: number = 100;
 
     constructor() {
     }
 
     ngOnInit() {
-        if(this.isDescriptionTooLong()){
+        if(this.isDescriptionTooLong()){ //TODO change this logic
             this.partialDescription = this.description.slice(0, this.sliceDescriptionAt);
             this.partialDescription += '...';
         } else {
@@ -34,5 +34,4 @@ export class CardComponent implements OnInit {
     isDescriptionTooLong(){
         return this.description ? this.description.length > this.sliceDescriptionAt : false;
     }
-
 }

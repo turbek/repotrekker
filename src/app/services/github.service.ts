@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {Subject} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 import {QueriedIssuesResponse, QueriedRepositoryResponse} from "../models/models";
 
 @Injectable({
@@ -9,9 +8,8 @@ import {QueriedIssuesResponse, QueriedRepositoryResponse} from "../models/models
 export class GithubService {
     private readonly API_URL = `https://api.github.com`;
     private repositoryStore: QueriedRepositoryResponse = null;
-    private issueStore = new Subject<QueriedIssuesResponse>();
     private queriedRepositoryName: string;
-    private currentlyLoadedRepositoryDetails = { userName: "", repositoryName: "" };
+    private currentlyLoadedRepositoryDetails: { userName: string, repositoryName: string } = { userName: "", repositoryName: "" };
 
     constructor(private http: HttpClient) {
     }
@@ -35,27 +33,17 @@ export class GithubService {
         return !this.repositoryStore || this.queriedRepositoryName !== repositoryName;
     }
 
-    loadIssuesForRepository(userName: string, repositoryName: string) {
+    async loadIssuesForRepository(userName: string, repositoryName: string): Promise<QueriedIssuesResponse> {
         this.currentlyLoadedRepositoryDetails.userName = userName;
         this.currentlyLoadedRepositoryDetails.repositoryName = repositoryName;
-        this.http.get<QueriedIssuesResponse>(`${this.API_URL}/search/issues?q=repo:${userName}/${repositoryName}`)
-            .subscribe(
-                (response: QueriedIssuesResponse) => {
-                    this.issueStore.next(response);
-                },
-                (error: HttpErrorResponse) => console.error(error)
-            )
-    }
-
-    getIssues() {
-        return this.issueStore.asObservable();
+        return await this.http.get<QueriedIssuesResponse>(`${this.API_URL}/search/issues?q=repo:${userName}/${repositoryName}`).toPromise();
     }
 
     getSearchedRepositoryName() {
         return this.queriedRepositoryName || this.currentlyLoadedRepositoryDetails.repositoryName;
     }
 
-    getCurrentRepositoryDetails() {
+    getCurrentRepositoryDetails(): { userName: string, repositoryName: string } {
         return this.currentlyLoadedRepositoryDetails;
     }
 }
